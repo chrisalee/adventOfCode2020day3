@@ -330,24 +330,21 @@
 // "..#.##....#..#......###..#....."
 // ];
 
-// const moveRight = 1;
-// const moveDown = 2;
+const tobogganRiding = (right, down) => {
+  const scaleFactor = Math.ceil(right * mapLayout.length / mapLayout[0].length);
+  const bigMapLayout = mapLayout.map(row => row.repeat(scaleFactor));
+  // console.log(bigMapLayout);
+  let [row, column] = [0, 0];
+  let count = 0;
+  while(row < mapLayout.length) {
+    if(bigMapLayout[row][column] === '#') {
+      count++;
+    }
+    row+=down;
+    column+=right;
+  }
+  
+  console.log(count);
+}
 
-// const scaleFactor = Math.ceil(moveRight * mapLayout.length / mapLayout[0].length);
-// // console.log(scaleFactor);
-
-// const bigMapLayout = mapLayout.map(row => row.repeat(scaleFactor));
-// console.log(bigMapLayout);
-
-// let [row, column] = [0, 0];
-// let count = 0;
-// while(row < mapLayout.length) {
-//   if(bigMapLayout[row][column] === '#') {
-//     count++;
-//   }
-//   row+=moveDown;
-//   column+=moveRight;
-//   console.log([row, column]);
-// }
-
-// console.log(count);
+tobogganRiding(3, 1);
