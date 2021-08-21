@@ -1,6 +1,4 @@
-// can use this in browser to fetch input data, note input data is below as well
-const response = await fetch('https://adventofcode.com/2020/day/3/input');
-const responseText =  response.text();
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //  least amount of code
 const onelineTraverser = (row = 0, column = 0) => {
