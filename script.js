@@ -1,4 +1,28 @@
+//part 2 optimized1
+//function has memory 
+//function that returns a functionconst directions = [[1, 1], [1, 3], [1, 5], [1, 7], [2, 1]];
 
+const generateTraverser = (rowShift, columnShift) => {
+  const traverser = (row = 0, column = 0) => row < mapLayout.length ? traverser(row + rowShift, (column + columnShift) % mapLayout[0].length) + (mapLayout[row][column] === "#" ? 1 : 0) : 0; 
+  return traverser;
+};
+
+const treeCounts = directions.map(([rowShift, columnShift]) => generateTraverser(rowShift, columnShift)());
+
+console.log(treeCounts);
+console.log(treeCounts.reduce((a, b) => a * b, 1));
+
+
+// inital part 2 code//////////////////////////////////////
+// const partTwo = (rowShift, columnShift, row = 0, column = 0) => {
+//   return row < mapLayout.length ? partTwo(rowShift, columnShift, row + rowShift, (column + columnShift) % mapLayout[0].length) + (mapLayout[row][column] === "#" ? 1 : 0) : 0
+// };
+// const treeCountsPart2 = directions.map(([rowShift, columnShift]) => partTwo(rowShift, columnShift));
+// console.log(treeCountsPart2);
+// console.log(treeCountsPart2.reduce((a, b) => a * b, 1));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 //  least amount of code
 const onelineTraverser = (row = 0, column = 0) => {
